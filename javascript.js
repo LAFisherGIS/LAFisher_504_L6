@@ -29,11 +29,205 @@ new L.Control.Draw({
 //Defines rules for spawning the popup from a created feature
 function createFormPopup() {
     var popupContent =
-        '<form>' +
-        'Description:<br><input type="text" id="input_desc"><br>' +
-        'User\'s Name:<br><input type="text" id="input_name"><br>' +
-        '<input type="button" value="Submit" id="submit">' +
-        '</form>'
+    '<form>' +
+  		'<h2>Please answer all which you can.</h2>' +
+  		'<ul>' +
+  		  '<li>' +
+  				'<fieldset>' +
+  					'<legend>What kind of restroom is it?</legend>' +
+  					'<p>' +
+  				    '<input type="radio" name="restroomCat" id="Portable" value="Portable">' +
+  				    'Port-O-John' +
+  	    		'</p>' +
+  			    '<p>' +
+  					  '<input type="radio" name="restroomCat" id="Latrine" value="Latrine">' +
+  				    'Outhouse/Latrine' +
+  			    '</p>' +
+  			    '<p>' +
+  						'<input type="radio" name="restroomCat" id="Building" value="Building">' +
+  						'<label for="Building">Permanent Structure with Plumbing</label>' +
+  				  '</p>' +
+   				'</fieldset>' +
+  		  '</li>' +
+  		  '<li>' +
+  				'<fieldset>' +
+  					'<legend>What gender does the restroom used serve?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="genderCat" id="All" value="All Gender">' +
+  						'All Gender' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="genderCat" id="W" value="Women">' +
+  						'Women' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="genderCat" id="M" value="Men">' +
+  						'Men' +
+  					'</p>' +
+  				'</fieldset>' +
+  		  '</li>' +
+  		  '<li>' +
+  				'<fieldset>' +
+  					'<legend>Please supply a photo of the restroom from outside.</legend>' +
+  					'<input type="file" capture="user" accept="image/*" id="photo">' +
+  				'</fieldset>' +
+  		  '</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Usage Fee (enter 0.00 if no fee):</legend>' +
+  					'<p>' +
+  						'<input type="number" id="price">' +
+  						'USD' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<h3>Section</h3>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Is the restroom out of order?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="OutCat" id="ONo" value="OOONo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="OutCat" id="OYes" value="OOOYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="OutCat" id="OUnknown" value="OOOUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Number of toilets + urinals in the restroom.</legend>' +
+  					'<input type="number" id="NToilets">' +
+  					'units' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Does the restroom have sinks?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="SinkCat" id="SNo" value="SinksNo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="SinkCat" id="SYes" value="SinksYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="SinkCat" id="SUnknown" value="SinksUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Does the restroom have urinals?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="UriCat" id="UNo" value="UrinalNo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="UriCat" id="UYes" value="UrinalYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="UriCat" id="UUnknown" value="UrinalUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Does the restroom have diaper change stations?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="DiaCat" id="DNo" value="DiaperNo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="DiaCat" id="DYes" value="DiaperYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="DiaCat" id="DUnknown" value="DiaperUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Does the restroom have showers?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="ShoCat" id="ShNo" value="ShowerNo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="ShoCat" id="ShYes" value="ShowerYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="ShoCat" id="ShUnknown" value="ShowerUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Is the restroom ADA accessible?</legend>' +
+  					'<p>' +
+  						'<input type="radio" name="ADACat" id="ANo" value="ADANo">' +
+  						'No' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="ADACat" id="AYes" value="ADAYes">' +
+  						'Yes' +
+  					'</p>' +
+  					'<p>' +
+  						'<input type="radio" name="ADACat" id="AUnknown" value="ADAUnknown">' +
+  						'Unknown' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Please describe any damage that needs repairs in the restroom.</legend>' +
+  					'<p>' +
+  						'<input type="text" name="Damage" id="Damage">' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Please describe any messes that need cleanup in the restroom.</legend>' +
+  					'<p>' +
+  						'<input type="text" name="Mess" id="Mess">' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Please describe any supply shortages that need restocking in the restroom.</legend>' +
+  					'<p>' +
+  						'<input type="text" name="Shortage" id="Shortage">' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+  			'<li>' +
+  				'<fieldset>' +
+  					'<legend>Date of update:</legend>' +
+  					'<p>' +
+  						'<input type="date" name="Date" id="Date">' +
+  					'</p>' +
+  				'</fieldset>' +
+  			'</li>' +
+        '<li>' +
+          '<input type="submit" id="submit">'
+        '</li>' +
+  	 '</ul>' +
+  	'</form>'
     drawnItems.bindPopup(popupContent).openPopup();
 }
 
@@ -47,11 +241,37 @@ map.addEventListener("draw:created", function(e) {
 function setData(e) {
     if(e.target && e.target.id == "submit") {
         // Get user name and description
-        var enteredUsername = document.getElementById("input_name").value;
-        var enteredDescription = document.getElementById("input_desc").value;
+        var structure = document.getElementsByName("restroomCat").value;
+        var gender = document.getElementsByName("genderCat").value;
+        var sitePhoto = document.getElementById("photo").value;
+        var entryPrice = document.getElementById("price").value;
+        var outOfOrder = document.getElementsByName("OutCat").value;
+        var noToilets = document.getElementById("NToilets").value;
+        var sinks = document.getElementsByName("SinkCat").value;
+        var urinals = document.getElementsByName("UriCat").value;
+        var diaperChange = document.getElementsByName("DiaCat").value;
+        var showers = document.getElementsByName("ShoCat").value;
+        var americanDA = document.getElementsByName("ADACat").value;
+        var damages = document.getElementById("Damage").value;
+        var messes = document.getElementById("Mess").value;
+        var shortages = document.getElementById("Shortage").value;
+        var upDate = document.getElementById("Date").value;
         // Print user name and description
-        console.log(enteredUsername);
-        console.log(enteredDescription);
+        console.log(structure);
+        console.log(gender);
+        console.log(sitePhoto);
+        console.log(entryPrice);
+        console.log(outOfOrder);
+        console.log(noToilets);
+        console.log(sinks);
+        console.log(urinals);
+        console.log(diaperChange);
+        console.log(showers);
+        console.log(americanDA);
+        console.log(damages);
+        console.log(messes);
+        console.log(shortages);
+        console.log(upDate);
         // Get and print GeoJSON for each drawn layer
         drawnItems.eachLayer(function(layer) {
             var drawing = JSON.stringify(layer.toGeoJSON().geometry);
