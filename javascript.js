@@ -265,7 +265,7 @@ function setData(e) {
         var messes = document.getElementById("Mess").value;
         var shortages = document.getElementById("Shortage").value;
         var upDate = document.getElementById("Date").value;
-        // Print user name and description
+        //print survey outputs
         console.log('Structure Type: ' + restroomType);
         console.log('Gender Served: ' + gender);
         console.log('Photo: ' + sitePhoto);
