@@ -1,3 +1,5 @@
+alert('Welcome to the Tacoma Public Restroom Routing Survey! Tap the middle button on the left and then tap again at the location of the restroom you\'re reporting to open a survey where you can provide details on the restroom for the future benefit of yourself and others when it comes to locating a restroom that suits your needs.')
+
 var map = L.map('map', {
   maxBounds : [[47.37396776157878, -122.63860441671564], [47.09334144436703, -122.29401946898379]],
   minZoom : 12
