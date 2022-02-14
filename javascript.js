@@ -45,7 +45,7 @@ function createFormPopup() {
   			    '</p>' +
   			    '<p>' +
   						'<input type="radio" name="restroomCat" id="Building" value="Building">' +
-  						'<label for="Building">Permanent Structure with Plumbing</label>' +
+  						'Permanent Structure with Plumbing' +
   				  '</p>' +
    				'</fieldset>' +
   		  '</li>' +
@@ -237,41 +237,50 @@ map.addEventListener("draw:created", function(e) {
     createFormPopup();
 });
 
+//Created based on the following link and experience with python: https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/
+function radioCheck(a) {
+  var target = document.getElementsByName(a);
+
+  for(i = 0; i < target.length; i++) {
+      if(target[i].checked)
+      return target[i].value;
+  }
+}
+
 //Prints inputted data into console after turning it into variables
 function setData(e) {
     if(e.target && e.target.id == "submit") {
-        // Get user name and description
-        var structure = document.getElementsByName("restroomCat").value;
-        var gender = document.getElementsByName("genderCat").value;
+        var restroomType = radioCheck('restroomCat');
+        var gender = radioCheck('genderCat');
         var sitePhoto = document.getElementById("photo").value;
         var entryPrice = document.getElementById("price").value;
-        var outOfOrder = document.getElementsByName("OutCat").value;
+        var outOfOrder = radioCheck("OutCat");
         var noToilets = document.getElementById("NToilets").value;
-        var sinks = document.getElementsByName("SinkCat").value;
-        var urinals = document.getElementsByName("UriCat").value;
-        var diaperChange = document.getElementsByName("DiaCat").value;
-        var showers = document.getElementsByName("ShoCat").value;
-        var americanDA = document.getElementsByName("ADACat").value;
+        var sinks = radioCheck("SinkCat");
+        var urinals = radioCheck("UriCat");
+        var diaperChange = radioCheck("DiaCat");
+        var showers = radioCheck("ShoCat");
+        var americanDA = radioCheck("ADACat");
         var damages = document.getElementById("Damage").value;
         var messes = document.getElementById("Mess").value;
         var shortages = document.getElementById("Shortage").value;
         var upDate = document.getElementById("Date").value;
         // Print user name and description
-        console.log(structure);
-        console.log(gender);
-        console.log(sitePhoto);
-        console.log(entryPrice);
-        console.log(outOfOrder);
-        console.log(noToilets);
-        console.log(sinks);
-        console.log(urinals);
-        console.log(diaperChange);
-        console.log(showers);
-        console.log(americanDA);
-        console.log(damages);
-        console.log(messes);
-        console.log(shortages);
-        console.log(upDate);
+        console.log('Structure Type: ' + restroomType);
+        console.log('Gender Served: ' + gender);
+        console.log('Photo: ' + sitePhoto);
+        console.log('Price: ' + entryPrice);
+        console.log('Out of Order?: ' + outOfOrder);
+        console.log('Number of Toilets: ' + noToilets);
+        console.log('Has Sinks: ' + sinks);
+        console.log('Has Urinals: ' + urinals);
+        console.log('Has Diaper Stations: ' + diaperChange);
+        console.log('Has Showers: ' + showers);
+        console.log('ADA Compliant: ' + americanDA);
+        console.log('Damages: ' + damages);
+        console.log('Messes: ' + messes);
+        console.log('Shortages: ' + shortages);
+        console.log('Last Update: ' + upDate);
         // Get and print GeoJSON for each drawn layer
         drawnItems.eachLayer(function(layer) {
             var drawing = JSON.stringify(layer.toGeoJSON().geometry);
