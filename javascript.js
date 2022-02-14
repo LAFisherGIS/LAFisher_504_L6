@@ -237,7 +237,7 @@ map.addEventListener("draw:created", function(e) {
     createFormPopup();
 });
 
-//Created based on the following link and experience with python: https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/
+// based on the following link and experience with python: https://www.geeksforgeeks.org/how-to-get-value-of-selected-radio-button-using-javascript/
 function radioCheck(a) {
   var target = document.getElementsByName(a);
 
