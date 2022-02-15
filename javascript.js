@@ -272,8 +272,8 @@ function setData(e) {
         var shortages = document.getElementById("Shortage").value;
         var upDate = document.getElementById("Date").value;
         //print survey outputs
-        console.log('Why Are You Like This?: ' + whyareyoulikethis);
-        console.log('Structure Type: ' + restroomType);  //I have no idea why but this is the only thing that makes the restroom type get logged properly
+        console.log('Why Are You Like This?: ' + whyareyoulikethis); //I have no idea why but this is the only thing that makes the restroom type get logged properly
+        console.log('Structure Type: ' + restroomType);
         console.log('Gender Served: ' + gender);
         console.log('Photo: ' + sitePhoto);
         console.log('Price: ' + entryPrice);
