@@ -255,7 +255,8 @@ function radioCheck(a) {
 //Prints inputted data into console after turning it into variables
 function setData(e) {
     if(e.target && e.target.id == "submit") {
-        var whyareyoulikethis = radioCheck('restroomCat'); //I have no idea why but this is the only thing that makes the restroom type get declared properly
+      //I have no idea why, but the extra function call and console.log lines are the only thing that can make the full list actually get printed.
+        var whyareyoulikethis = radioCheck('restroomCat');
         var restroomType = radioCheck('restroomCat');
         var gender = radioCheck('genderCat');
         var sitePhoto = document.getElementById("photo").value;
@@ -272,7 +273,7 @@ function setData(e) {
         var shortages = document.getElementById("Shortage").value;
         var upDate = document.getElementById("Date").value;
         //print survey outputs
-        console.log('Why Are You Like This?: ' + whyareyoulikethis); //I have no idea why but this is the only thing that makes the restroom type get logged properly
+        console.log('Why Are You Like This?: ' + whyareyoulikethis);
         console.log('Structure Type: ' + restroomType);
         console.log('Gender Served: ' + gender);
         console.log('Photo: ' + sitePhoto);
